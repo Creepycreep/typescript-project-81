@@ -1,14 +1,26 @@
 {
-  "name": "@hexlet/code",
-  "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Creepycreep/typescript-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Creepycreep/typescript-project-81/actions)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Liza",
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^5.5.4"
-  }
+	"name": "@hexlet/code",
+	"version": "1.0.0",
+	"description": "[![Actions Status](https://github.com/Creepycreep/typescript-project-81/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Creepycreep/typescript-project-81/actions)",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "eslint .",
+		"fix": "prettier --write . && eslint . --fix"
+	},
+	"author": "Liza",
+	"license": "ISC",
+	"devDependencies": {
+		"@babel/core": "^7.25.2",
+		"@babel/eslint-parser": "^7.25.1",
+		"@eslint/js": "^9.9.0",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^9.9.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"globals": "^15.9.0",
+		"prettier": "3.3.3",
+		"typescript": "^5.5.4",
+		"typescript-eslint": "^8.2.0"
+	}
 }
