@@ -54,6 +54,9 @@ jobs:
         with:
           node-version: '20.x'
 
+      - name: Install dependencies
+        run: npm install
+
       - name: test and publish code coverage
         uses: paambaati/codeclimate-action@v5.0.0
         env:
@@ -61,4 +64,5 @@ jobs:
         with:
           coverageCommand: make coverage
           debug: true
-          coverageLocations: ${{github.workspace}}/coverage/cobertura-coverage.xml:cobertura
+          coverageLocations: |
+            ${{github.workspace}}/coverage/clover.xml:clover
