@@ -12,9 +12,6 @@ export default [
 		plugins: {
 			prettier,
 		},
-		rules: {
-			'prettier/prettier': 'error',
-		},
 	},
 	pluginJs.configs.recommended,
 	...tseslint.configs.recommended,
