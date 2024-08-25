@@ -15,9 +15,8 @@ export default class Form {
 
 	toString() {
 		return new Tag('form', {
-			...this.props,
-			action: this.props ? this.props.url : '#',
-			method: this.props ? this.props.method : 'post',
-		});
+			action: this.props && this.props.url ? this.props.url : '#',
+			method: this.props && this.props.method ? this.props.method : 'post',
+		}).toString();
 	}
 }
