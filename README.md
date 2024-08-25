@@ -12,4 +12,4 @@
    Первый аргумент - шаблон, второй (необязательный, либо пустой объект) - атрибуты формы, третий (необязательный) - поля формы, первый аргумент - name инпута, второй (необязательный) - атрибут инпута
    `HexletCode.formFor(template, {url: '/users' }, (f) => {f.input('name', { class: 'user-input' });f.input('job');})`
 3. Ожидаемый результат:
-   `<form action="/users" method="post"><input type="text" value="rob" class="user-input" name="name"><input type="text" value="hexlet" name="job"></form>`
+   `<form action="/users" method="post"><label for="name">Name</label><input type="text" value="rob" name="name"><label for="job">Job</label><textarea cols="20" rows="40" as="textarea" name="job">hexlet</textarea><input type="submit" value="Save"></form>`
