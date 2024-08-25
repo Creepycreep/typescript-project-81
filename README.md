@@ -4,12 +4,23 @@
 
 [![QA](https://github.com/Creepycreep/typescript-project-81/actions/workflows/QA.yml/badge.svg)](https://github.com/Creepycreep/typescript-project-81/actions/workflows/QA.yml)
 
-Пример использования генератора форм:
+### Test coverage:
 
-1. Необходимо создать шаблон формы:
-   `const template = { name: 'rob', job: 'hexlet', gender: 'm' };`
-2. Далее использовать метод генерации формы
-   Первый аргумент - шаблон, второй (необязательный, либо пустой объект) - атрибуты формы, третий (необязательный) - поля формы, первый аргумент - name инпута, второй (необязательный) - атрибут инпута
-   `HexletCode.formFor(template, {url: '/users' }, (f) => {f.input('name', { class: 'user-input' });f.input('job');f.submit();})`
-3. Ожидаемый результат:
-   `<form action="/users" method="post"><label for="name">Name</label><input type="text" value="rob" name="name"><label for="job">Job</label><textarea cols="20" rows="40" as="textarea" name="job">hexlet</textarea><input type="submit" value="Save"></form>`
+[![Test Coverage](https://api.codeclimate.com/v1/badges/64ce19b7082e5cc93102/test_coverage)](https://codeclimate.com/github/Creepycreep/typescript-project-81/test_coverage)
+
+### Пример использования генератора форм:
+
+```javascript
+const template = { name: 'rob', job: 'hexlet', gender: 'm' };
+const form = HexletCode.formFor(template, { method: 'post' }, (f) => {
+	f.input('name');
+	f.input('job', { as: 'textarea' });
+});
+
+console.log(form);
+
+//  <form action="#" method="post">
+//      <input name="name" type="text" value="rob">
+//      <textarea cols="20" rows="40" name="job" as="textarea">hexlet</textarea>
+//  </form>
+```
