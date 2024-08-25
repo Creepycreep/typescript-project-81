@@ -14,6 +14,7 @@ describe('HexletCode', () => {
 			HexletCode.formFor(template, { url: '/users' }, (f) => {
 				f.input('name');
 				f.input('job', { as: 'textarea' });
+				f.submit();
 			}),
 		).toBe(formFixtures.form2);
 	});
@@ -23,6 +24,7 @@ describe('HexletCode', () => {
 			HexletCode.formFor(template, {}, (f) => {
 				f.input('name', { class: 'user-input' });
 				f.input('job');
+				f.submit('wow');
 			}),
 		).toBe(formFixtures.form3);
 	});

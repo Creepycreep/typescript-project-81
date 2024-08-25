@@ -28,6 +28,7 @@ export default class Form {
 
 		if (attrs && attrs.as === 'textarea') {
 			this.inputs.push(
+				this.label(value),
 				new Tag(
 					'textarea',
 					{
@@ -44,11 +45,32 @@ export default class Form {
 		}
 
 		this.inputs.push(
+			this.label(value),
 			new Tag('input', {
 				type: 'text',
 				value: this.template[value],
 				...attrs,
 				name: value,
+			}).toString(),
+		);
+	}
+
+	label(value: string) {
+		const valFirstLetterUpper = value[0].toUpperCase() + value.slice(1);
+		return new Tag(
+			'label',
+			{
+				for: value,
+			},
+			valFirstLetterUpper,
+		).toString();
+	}
+
+	submit(value: string = 'Save') {
+		this.inputs.push(
+			new Tag('input', {
+				type: 'submit',
+				value: value,
 			}).toString(),
 		);
 	}
