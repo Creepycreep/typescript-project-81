@@ -18,9 +18,9 @@ export default class Tag {
 	private isUnpaired: boolean;
 	private name: string;
 	private attributes?: string;
-	private content?: string;
+	private content?: string | number;
 
-	constructor(name: string, attributes?: Record<string, string>, content?: string) {
+	constructor(name: string, attributes?: Record<string, string | number>, content?: string | number) {
 		this.name = name;
 		this.content = content ?? '';
 		this.isUnpaired = this.unpairedTags.includes(name);
