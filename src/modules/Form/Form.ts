@@ -14,19 +14,21 @@ export default class Form {
 		return new Tag(
 			'form',
 			{
-				action: this.props && this.props.url ? this.props.url : '#',
 				method: this.props && this.props.method ? this.props.method : 'post',
+				action: this.props && this.props.url ? this.props.url : '#',
 			},
 			this.inputs.join(''),
 		).toString();
 	}
 
-	input(value: string, attrs?: Record<string, string | number>) {
+	input(value: string, attrs?: Record<string, string | number> & { as: string }) {
 		if (!Object.hasOwn(this.template, value)) {
 			throw new Error(`Error: Field '${value}' does not exist in the template.`);
 		}
 
 		if (attrs && attrs.as === 'textarea') {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const { as, ...rest } = attrs;
 			this.inputs.push(
 				this.label(value),
 				new Tag(
@@ -34,8 +36,8 @@ export default class Form {
 					{
 						cols: '20',
 						rows: '40',
-						...attrs,
 						name: value,
+						...rest,
 					},
 					this.template[value],
 				).toString(),
@@ -47,10 +49,10 @@ export default class Form {
 		this.inputs.push(
 			this.label(value),
 			new Tag('input', {
+				name: value,
 				type: 'text',
 				value: this.template[value],
 				...attrs,
-				name: value,
 			}).toString(),
 		);
 	}
